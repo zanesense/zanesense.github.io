@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png"> 
+    <title>zanesense.</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Apply the Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: all 0.5s ease; /* Transition all changes (like background color) */
+        }
+        
+        /* Define Light Mode Colors via CSS variables/overrides */
+        body[data-theme="light"] {
+            /* General Backgrounds */
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #1f2937; /* text-gray-900 */
+        }
+
+        body[data-theme="light"] .text-gray-400 { color: #6b7280; /* text-gray-500 */ }
+        body[data-theme="light"] .text-gray-100 { color: #1f2937; /* text-gray-900 */ }
+        body[data-theme="light"] .text-white { color: #1f2937; /* text-gray-900 */ }
+        
+        /* Cards and Sections */
+        body[data-theme="light"] .bg-gray-900 { background-color: #ffffff; /* bg-white */ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        body[data-theme="light"] .bg-gray-800 { background-color: #ffffff; /* bg-white */ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        
+        /* Borders and Dividers */
+        body[data-theme="light"] .border-gray-800 { border-color: #d1d5db; /* border-gray-300 */ }
+        body[data-theme="light"] .border-gray-700 { border-color: #e5e7eb; /* border-gray-200 */ }
+        
+        /* Indigo Accent */
+        body[data-theme="light"] .text-indigo-400 { color: #4f46e5; /* indigo-600 */ }
+        body[data-theme="light"] .text-indigo-300 { color: #6366f1; /* indigo-500 */ }
+        body[data-theme="light"] .bg-indigo-500 { background-color: #4f46e5; }
+        body[data-theme="light"] .hover\:bg-indigo-600:hover { background-color: #4338ca; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen transition-colors duration-500" data-theme="dark">
+
+    <!-- Theme Toggle and Top of Page Items -->
+    <div id="top-bar-controls" class="fixed top-4 right-4 z-50 flex space-x-3">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="p-3 rounded-full bg-gray-800 text-indigo-400 hover:bg-gray-700 shadow-xl transition duration-300 ease-in-out" aria-label="Toggle theme">
+            <i data-lucide="sun" class="w-5 h-5" id="theme-icon"></i>
+        </button>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-4xl">
+
+        <!-- Header / Hero Section -->
+        <header class="text-center py-16">
+            <!-- Profile picture fetched from GitHub -->
+            <img src="https://github.com/zanesense.png" 
+                 alt="zanesense. Profile Picture" 
+                 class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-indigo-500 shadow-xl mb-4"
+                 onerror="this.onerror=null; this.src='https://placehold.co/128x128/1f2937/ffffff?text=ZS';">
+            
+            <h1 class="text-5xl font-extrabold tracking-tight text-white mb-2">zanesense.</h1>
+            <p class="text-xl font-medium text-indigo-400">Software Developer & Open Source Contributor</p>
+
+            <!-- Quick Links (Mobile Friendly) -->
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#projects" class="group transition duration-300 ease-in-out hover:bg-indigo-600 bg-indigo-500 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:shadow-2xl flex items-center text-sm sm:text-base">
+                    <i data-lucide="folder-open" class="w-5 h-5 mr-2"></i>
+                    Projects
+                </a>
+                <a href="#contact" class="group transition duration-300 ease-in-out hover:bg-gray-700 bg-gray-800 text-gray-300 font-semibold py-2 px-6 rounded-full shadow-lg hover:shadow-2xl flex items-center text-sm sm:text-base">
+                    <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                    Contact
+                </a>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-indigo-500 pb-2 mb-6 text-white">About Me</h2>
+            <div class="bg-gray-900 p-6 rounded-xl shadow-inner border border-gray-800">
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    A passionate developer with a focus on building robust and scalable web applications. My expertise lies in modern JavaScript frameworks and contributing to open-source initiatives. I believe in writing clean, maintainable code and leveraging technology to solve real-world problems. I am always exploring new tools and methodologies to improve my craft.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <!-- Skills List -->
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-blue-900 text-blue-300 shadow-md">
+                        <i data-lucide="code" class="w-4 h-4 mr-2"></i> Python
+                    </span>
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-red-900 text-red-300 shadow-md">
+                        <i data-lucide="codesandbox" class="w-4 h-4 mr-2"></i> C++
+                    </span>
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-yellow-900 text-yellow-300 shadow-md">
+                        <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> HTML
+                    </span>
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-green-900 text-green-300 shadow-md">
+                        <i data-lucide="zap" class="w-4 h-4 mr-2"></i> JavaScript
+                    </span>
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-pink-900 text-pink-300 shadow-md">
+                        <i data-lucide="layers" class="w-4 h-4 mr-2"></i> CSS
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section - Dynamically loaded from GitHub API -->
+        <section id="projects" class="mb-16">
+            <h2 class="text-3xl font-bold border-b-2 border-indigo-500 pb-2 mb-8 text-white">Featured Projects</h2>
+            
+            <div id="projects-grid" class="grid md:grid-cols-2 gap-8">
+                <!-- Loading Indicator while fetching from GitHub -->
+                <div class="md:col-span-2 text-center py-12">
+                    <svg class="animate-spin h-8 w-8 text-indigo-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="text-gray-400">Loading GitHub projects...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-16 text-center">
+            <h2 class="text-3xl font-bold border-b-2 border-indigo-500 pb-2 mb-6 text-white inline-block">Get In Touch</h2>
+            <p class="text-gray-400 mb-8">I'm always open to discussing new projects, collaborations, or job opportunities.</p>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                
+                <!-- GitHub Button -->
+                <a href="https://github.com/zanesense" target="_blank" class="contact-btn bg-gray-800 text-gray-300 hover:bg-gray-700 transition duration-200 ease-in-out py-3 px-8 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center">
+                    <i data-lucide="github" class="w-5 h-5 mr-2"></i>
+                    GitHub /zanesense
+                </a>
+                
+                <!-- Email Button -->
+                <a href="mailto:asaim3408@gmail.com" class="contact-btn bg-indigo-600 text-white hover:bg-indigo-700 transition duration-200 ease-in-out py-3 px-8 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                    Email Me
+                </a>
+
+                <!-- LinkedIn Button (Placeholder) -->
+                <a href="https://instagram.com/saimaly" target="_blank" class="contact-btn bg-blue-700 text-white hover:bg-blue-800 transition duration-200 ease-in-out py-3 px-8 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center">
+                    <i data-lucide="instagram" class="w-5 h-5 mr-2"></i>
+                    Instagram
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 pt-8 border-t border-gray-800">
+            <p>&copy; 2025 zanesense. Built with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
+        </footer>
+
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top-btn" class="fixed bottom-6 right-6 p-4 rounded-full bg-indigo-500 text-white shadow-2xl opacity-0 invisible transition-all duration-300 z-40 hover:bg-indigo-600" aria-label="Back to top">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Script to initialize Lucide Icons and fetch projects -->
+    <script>
+        // Calls the lucide icon library to render icons after the page loads
+        lucide.createIcons();
+
+        // --- THEME TOGGLE LOGIC ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        /**
+         * Applies the theme based on the saved preference or defaults to dark.
+         */
+        function applyThemeFromStorage() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        }
+
+        /**
+         * Sets the visual theme and updates the icon.
+         * @param {string} theme - 'dark' or 'light'.
+         */
+        function setTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            // Update icon based on the theme we just SET
+            if (theme === 'dark') {
+                themeIcon.setAttribute('data-lucide', 'sun');
+                // Re-create icon to update visual appearance
+                lucide.createIcons();
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+                // Re-create icon to update visual appearance
+                lucide.createIcons();
+            }
+        }
+
+        /**
+         * Toggles the theme between dark and light.
+         */
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        applyThemeFromStorage(); // Apply theme on initial load
+
+        // --- BACK TO TOP LOGIC ---
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        const SCROLL_THRESHOLD = 300; // Pixels to scroll before showing the button
+
+        /**
+         * Handles window scroll event to show/hide the back-to-top button.
+         */
+        function handleScroll() {
+            if (window.scrollY > SCROLL_THRESHOLD) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        }
+
+        /**
+         * Scrolls the window smoothly to the top.
+         */
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        backToTopBtn.addEventListener('click', scrollToTop);
+
+
+        // --- DYNAMIC PROJECT LOADING LOGIC ---
+        
+        const GITHUB_USERNAME = 'zanesense';
+        const projectsGrid = document.getElementById('projects-grid');
+
+        // Custom data (icons, tags, and specific descriptions) to merge with GitHub API data
+        // This is used to augment or override GitHub data for featured projects.
+        const CUSTOM_PROJECT_DATA = {
+            hashy: {
+                icon: 'zap',
+                title: 'Hashy: Configurable Hashing Utility',
+                description: 'A flexible command-line interface tool built in Node.js for generating and verifying various hash types (MD5, SHA-256) on files and streams with high-speed performance.',
+                tags: [{ name: 'Node.js', color: 'yellow-600', text: 'yellow-100' }, { name: 'JavaScript', color: 'green-900', text: 'green-300' }, { name: 'CLI', color: 'blue-900', text: 'blue-300' }],
+            },
+            pyhash: {
+                icon: 'fingerprint',
+                title: 'PyHash: High-Performance Hashing',
+                description: 'A simple, high-performance Python library for various **non-cryptographic hashing algorithms** optimized with native C extensions for speed.',
+                tags: [{ name: 'Python', color: 'green-900', text: 'green-300' }, { name: 'C', color: 'gray-600', text: 'gray-100' }, { name: 'Algorithms', color: 'blue-900', text: 'blue-300' }],
+            },
+            abspider: {
+                icon: 'globe',
+                title: 'ABSpider: Advanced Web Crawler',
+                description: 'An asynchronous web scraping framework designed for **high-volume data collection**, utilizing distributed processing and custom middlewares for robustness and efficiency.',
+                tags: [{ name: 'Python', color: 'green-900', text: 'green-300' }, { name: 'AsyncIO', color: 'cyan-900', text: 'cyan-300' }, { name: 'Scrapy', color: 'red-900', text: 'red-300' }],
+            },
+            SceneSenseServer: { 
+                icon: 'scan',
+                title: 'SceneSense Server',
+                description: 'Tools for processing and analyzing **3D point cloud data**, with a focus on scene completion using diffusion models. Includes a Flask server for remote processing.',
+                tags: [{ name: 'Python', color: 'green-900', text: 'green-300' }, { name: 'PyTorch', color: 'red-900', text: 'red-300' }, { name: 'Open3D', color: 'gray-600', text: 'gray-100' }, { name: 'Flask', color: 'yellow-900', text: 'yellow-300' }],
+            }
+        };
+
+        /**
+         * Fetches data with built-in exponential backoff for rate limiting robustness.
+         * @param {string} url - The API endpoint to fetch.
+         * @param {number} retries - Maximum number of retries.
+         * @param {number} delay - Initial delay in milliseconds.
+         * @returns {Promise<Object>} The parsed JSON response.
+         */
+        async function retryFetch(url, retries = 3, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url);
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    if (response.status === 403 || response.status === 429) {
+                        // Rate limit exceeded or too many requests, wait and retry
+                        await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+                        continue;
+                    }
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+                }
+            }
+        }
+
+        /**
+         * Generates the HTML string for a single project card.
+         */
+        function createProjectCardHTML(project) {
+            const tagsHTML = project.tags.map(tag => 
+                `<span class="text-xs font-mono bg-${tag.color} text-${tag.text} px-3 py-1 rounded-full">${tag.name}</span>`
+            ).join('');
+
+            return `
+                <div class="project-card bg-gray-800 hover:bg-gray-700 transition duration-300 ease-in-out transform hover:-translate-y-1 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-indigo-400 mb-3 flex items-center">
+                        <i data-lucide="${project.icon}" class="w-6 h-6 mr-2"></i> 
+                        ${project.title}
+                    </h3>
+                    <p class="text-gray-400 mb-4 text-sm">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${tagsHTML}
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-gray-500 border-t border-gray-700 pt-3">
+                        <span class="flex items-center">
+                            <i data-lucide="star" class="w-4 h-4 mr-1 text-yellow-400"></i> 
+                            ${project.stars.toLocaleString()} Stars
+                        </span>
+                        <span>
+                            Updated ${new Date(project.updated_at).toLocaleDateString()}
+                        </span>
+                    </div>
+                    <a href="${project.html_url}" target="_blank" class="mt-3 block text-indigo-300 hover:text-indigo-200 font-medium text-sm transition duration-150 ease-in-out">
+                        View on GitHub &rarr;
+                    </a>
+                </div>
+            `;
+        }
+
+        /**
+         * Main function to fetch and display projects.
+         */
+        async function loadProjects() {
+            // Clear the loading indicator and prepare for content
+            projectsGrid.innerHTML = ''; 
+
+            try {
+                // Fetch all public repos for the user, sorted by push date
+                const repos = await retryFetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&direction=desc&per_page=100`);
+
+                const projects = repos
+                    // Filter out forks to focus on original contributions
+                    .filter(repo => !repo.fork) 
+                    // Map the API data to the card structure
+                    .map(repo => {
+                        const customData = CUSTOM_PROJECT_DATA[repo.name] || {};
+                        
+                        // Default tags: use primary language if no custom tags are defined
+                        let defaultTags = [];
+                        if (repo.language) {
+                            defaultTags.push({ 
+                                name: repo.language, 
+                                // Generic colors for dynamically discovered languages
+                                color: 'gray-600', 
+                                text: 'gray-100' 
+                            });
+                        }
+
+                        // Use custom data where available, otherwise use GitHub data
+                        return {
+                            title: customData.title || repo.name.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                            description: customData.description || repo.description || 'No description provided by GitHub.',
+                            html_url: repo.html_url,
+                            icon: customData.icon || 'code', // Default icon
+                            tags: customData.tags || defaultTags,
+                            stars: repo.stargazers_count,
+                            updated_at: repo.pushed_at,
+                        };
+                    })
+                    // Sort the final list by stars descending to feature the best projects
+                    .sort((a, b) => b.stars - a.stars);
+
+                // Display up to the top 6 projects for the grid layout
+                const projectsToDisplay = projects.slice(0, 6); 
+
+                if (projectsToDisplay.length === 0) {
+                    projectsGrid.innerHTML = '<p class="md:col-span-2 text-center text-red-400 py-12">No projects found on GitHub.</p>';
+                } else {
+                    projectsToDisplay.forEach(project => {
+                        projectsGrid.innerHTML += createProjectCardHTML(project);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                projectsGrid.innerHTML = '<p class="md:col-span-2 text-center text-red-400 py-12">Failed to load projects due to an API error. (Check console for details)</p>';
+            }
+
+            // Re-run lucide icon creation for new elements
+            lucide.createIcons();
+        }
+
+        window.onload = loadProjects;
+
+        // Fallback for late-loading scripts
+        if (document.readyState === 'complete') {
+             loadProjects();
+        }
+    </script>
+</body>
+</html>
